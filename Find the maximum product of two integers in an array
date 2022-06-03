@@ -1,0 +1,31 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+//Find the maximum product of two integers in an array
+public class Problem1{
+public static  void Maxproduct(int[] arr)
+{
+    int n = arr.length;
+    if(n<2)
+    {
+        return;
+    }
+   Arrays.sort(arr);
+   if((arr[0]*arr[1])>(arr[n-1]*arr[n-2]))
+   {
+        System.out.print("Pair is (" + arr[0] + ',' + arr[1] + ')'); 
+   }
+   else
+   {
+       System.out.print("Pair is (" + arr[n-1] + ',' + arr[n-2] + ')'); 
+   }
+}
+public static void main(String[] args)
+{
+    int[] arr = { -10, -3, 5, 6, -2};
+    Maxproduct(arr);
+    
+   
+  
+}
+}
