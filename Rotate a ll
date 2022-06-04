@@ -1,0 +1,62 @@
+public class Linkedlist{
+    Node head;
+  class Node
+  {
+      int data;
+      Node next;
+      Node(int data)
+      {
+          this.data=data;
+          this.next=null;
+      }
+  }
+      
+      public void Rotate(int k)
+      {
+       Node curr = head;
+       int count = 1;
+       while(count<k && curr!=null)
+       {
+           curr=curr.next;
+           count++;
+       }
+       Node kthnode = curr;
+       while(curr.next!=null)
+       {
+           curr=curr.next;
+       }
+       curr.next=head;
+       head=kthnode.next;
+       kthnode.next=null;
+       
+      }
+      public void push(int new_data)
+      {
+          Node new_node = new Node(new_data);
+          new_node.next=head;
+          head=new_node;
+      }
+      public void printList()
+      {
+          Node temp = head;
+          while(temp!=null)
+          {
+              System.out.println(temp.data);
+              temp=temp.next;
+          }
+      }
+      public static void main(String[] args)
+      {
+          Linkedlist list = new Linkedlist();
+          for (int i = 60; i >= 10; i -= 10)
+            list.push(i);
+         System.out.println( "Given list");
+        list.printList();
+  
+        list.Rotate(4);
+  
+        System.out.println("Rotated Linked List");
+        list.printList();
+    }
+      
+  }
