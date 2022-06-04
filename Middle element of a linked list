@@ -1,0 +1,50 @@
+public class Linkedlist{
+    Node head;
+  class Node
+  {
+      int data;
+      Node next;
+      Node(int data)
+      {
+          this.data=data;
+          this.next=null;
+      }
+  }
+      
+      public void Middle()
+      {
+          Node slow = head;
+          Node fast = head;
+          while(fast!=null&&fast.next!=null)
+          {
+              slow=slow.next;
+              fast=fast.next.next;
+          }
+       System.out.println("The middle element is " + slow.data);
+      }
+      public void push(int new_data)
+      {
+          Node new_node = new Node(new_data);
+          new_node.next=head;
+          head=new_node;
+      }
+      public void printList()
+      {
+          Node temp = head;
+          while(temp!=null)
+          {
+              System.out.println(temp.data);
+              temp=temp.next;
+          }
+      }
+      public static void main(String[] args)
+      {
+          Linkedlist list = new Linkedlist();
+         for(int i=5;i>0;i--)
+         {
+             list.push(i);
+             list.printList();
+             list.Middle();
+         }
+      }
+  }
