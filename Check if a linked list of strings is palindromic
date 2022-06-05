@@ -1,0 +1,74 @@
+//Remove nth node from end of a linked list 
+import java.util.*;
+import java.lang.*;
+public class Linkedlist
+{
+    Node head;
+    class Node
+    {
+        Node next;
+        int data;
+        Node(int data)
+        {
+            this.data=data;
+            next=null;
+        }
+    }
+    public void push(int new_data)
+    {
+        Node new_node = new Node(new_data);
+        new_node.next=head;
+        head=new_node;
+    }
+    public void printList()
+    {
+        Node temp = head;
+        while(temp!=null)
+        {
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+        }
+    }
+   public boolean ispalin()
+   {
+       Node slow = head;
+       boolean ispalin = true;
+       Stack<Integer> stack = new Stack<Integer>();
+       while(slow!=null)
+       {
+           stack.push(slow.data);
+           slow = slow.next;
+       }
+       while(head!=null)
+       {
+           int i = stack.pop();
+           if(i==head.data)
+           {
+               ispalin =  true;
+           }
+           else
+           {
+               ispalin = false;
+               break;
+           }
+           head =head.next;
+       }
+       return ispalin;
+   }
+    
+    
+    public static void main(String[] args)
+    {
+        Linkedlist list = new Linkedlist();
+        list.push(1);
+        list.push(2);
+        list.push(3);
+        list.printList();
+       boolean result =  list.ispalin();
+       System.out.print(result);
+    
+        
+        
+        
+    }
+}
