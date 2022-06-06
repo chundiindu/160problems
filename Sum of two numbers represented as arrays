@@ -1,0 +1,45 @@
+import java.util.*;
+import java.io.*;
+import java.lang.*;
+public class Solution {
+    ArrayList<Integer> findSum(int a[], int b[]) {
+        ArrayList<Integer> result  = new ArrayList<Integer>();
+        int i = a.length-1;
+        int j = b.length-1;
+        int sum = 0;
+        int carry = 0;
+        while(i>=0||j>=0)
+        {
+            int a2=0;
+            int b2=0;
+            if(i>=0)
+            {
+              a2=a[i]; 
+            }
+            if(j>=0)
+            {
+                b2=b[j];
+            }
+            sum = a2+b2+carry;
+            result.add(sum%10);
+            carry=sum/10;
+            i--;
+            j--;
+        }
+        if(carry>0)
+        {
+            result.add(carry);
+        }
+        Collections.reverse(result);
+        return result;
+    }
+    public static void main(String[] args)
+    {
+        int[] a = {5, 6, 3};
+        int[] b = {8, 4, 2};
+        Solution s = new Solution();
+        ArrayList<Integer> ans = s.findSum(a,b);
+        System.out.print(ans);
+        
+    }
+}
