@@ -1,0 +1,60 @@
+
+public class Main {
+	/* prints element and NSE pair for
+	all elements of arr[] of size n */
+	static void printNSE(int arr[], int n)
+	{
+		int next, i, j;
+		for (i = 0; i < n; i++) {
+			next = -1;
+			for (j = i + 1; j < n; j++) {
+				if (arr[i] > arr[j]) {
+					next = arr[j];
+					break;
+				}
+			}
+			System.out.println(arr[i] + " -- " + next);
+		}
+	}
+
+	public static void main(String args[])
+	{
+		int arr[] = { 11, 13, 21, 3 };
+		int n = arr.length;
+		printNSE(arr, n);
+	}
+}
+
+//nearest smaller element to left
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+public class Problem{
+    public static void nearestsmallest(int[] arr)
+    {
+       Stack<Integer> st = new Stack<Integer>();
+      for(int i=0;i<arr.length;i++)
+      {
+          while(!st.isEmpty()&&st.peek()<=arr[i])
+          {
+              st.pop();
+          }
+          if(st.isEmpty())
+          {
+               System.out.print("_, ");
+          }
+          else
+          {
+              System.out.print(st.peek() + ", ");
+          }
+          st.push(arr[i]);
+      }
+    }
+    public static void main(String[] args)
+    {
+        int[] arr = {1, 3, 0, 2, 5 };
+        nearestsmallest(arr);
+                  
+    }
+}
+
