@@ -1,0 +1,34 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+public class MyClass {
+    public static void firstRepeatedCharacter(String str){
+        int i =0;
+        char p  = '\0';
+      while(i<str.length())
+       {
+           
+           int j = 1;
+           while(j<str.length())
+           {
+               if(str.charAt(i)==str.charAt(j))
+               {
+                  p = str.charAt(i);
+                   break;
+                  
+               }
+              j++;
+           }
+           if(p!='\0')
+           {
+               break;
+           }
+       }
+       System.out.print(p);
+        
+    }
+    public static void main(String args[]) {
+    String str = "geeksforgeeks";
+    firstRepeatedCharacter(str);
+    }
+}
