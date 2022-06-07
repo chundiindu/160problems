@@ -1,0 +1,32 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+public class Problem{
+    public static void first(String str)
+    {
+        char p = '\0';
+      for(int i=0;i<str.length();i++)
+      {
+          for(int j=i+1;j<str.length();j++)
+          {
+              if(str.charAt(i)!=str.charAt(j))
+              {
+                  break;
+              }
+              else
+              {
+                  p=str.charAt(i);
+              }
+          }
+          if(p!='\0')
+          {
+              break;
+          }
+      }
+      System.out.print(p);
+    }
+     public static void main(String args[]) {
+    String str = "hello geeks";
+    first(str);
+    }
+}ha
