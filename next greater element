@@ -1,0 +1,37 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+public class MyClass {
+    public static void  Problem(int[] arr)
+    {
+        Stack<Integer> st = new Stack<Integer>();
+              st.push(arr[0]);
+   
+        for(int i=1;i<arr.length;i++)
+        {
+            
+            while(st.empty()==false && st.peek()<arr[i])
+            {
+               
+                System.out.println(st.peek()+"---------->"+arr[i]);
+                st.pop();
+            }
+          st.push(arr[i]);
+        }
+        
+        while(!st.isEmpty())
+          {
+             
+        
+              System.out.println(st.peek()+"...................>"+-1);
+              st.pop();
+            
+          }
+    }
+    
+    public static void main(String args[]) {
+      int[] arr = {11, 13, 21, 3};
+      Problem(arr);
+     
+    }
+}
