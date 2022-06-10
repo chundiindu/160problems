@@ -1,0 +1,33 @@
+import java.util.*;
+import java.lang.*;
+
+
+public class MyClass {
+    public static boolean isRotated (String str1,String str2)
+    {
+      String anticlockwise = "";  
+       String clockwise = "";  
+      int len1 = str1.length();
+      int len2 = str2.length();
+       if(len1<2 || len2<2)
+       {
+           if(str1==str2)
+           {
+               return true;
+           }
+       }
+       anticlockwise =  anticlockwise + str2.substring(len2-2,len2)+str2.substring(0,len2-2);
+      clockwise =  clockwise + str2.substring(2)+str2.substring(0,2);
+      if(str1.equals(anticlockwise)||str1.equals( clockwise))
+      {
+          return true;
+      }
+      return false;
+    }
+    public static void main(String args[]) {
+    String str1 = "geeks";
+    String str2 = "eksge";
+   System.out.print(isRotated(str1,str2)?"Yes":"No");
+    
+    }
+}
