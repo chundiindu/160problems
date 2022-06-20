@@ -1,0 +1,37 @@
+import java.util.*;
+public class MyClass {
+    public static void main(String args[]) {
+    int[] arr =  {1, 9, 3, 10, 4, 20, 2};
+    int result = longestsubsequence(arr);
+    System.out.print(result);
+    
+    }
+    
+    public static int longestsubsequence(int[] arr)
+    {
+       HashSet<Integer> set = new HashSet<Integer>();
+       for(int i=0;i<arr.length;i++)
+       {
+           set.add(arr[i]);
+       }
+       int longstreak = 0;
+       
+       for(int i=0;i<arr.length;i++)
+       {
+       if(!set.contains(arr[i]-1))
+       {
+           int currentnum = arr[i];
+           int currentstreak = 1;
+           while(set.contains(currentnum+1))
+           {
+               currentnum+=1;
+               currentstreak = currentstreak + 1;
+           }
+           longstreak = Math.max(longstreak,currentstreak);
+       }
+      
+    }
+    return longstreak;
+    
+}
+}
